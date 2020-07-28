@@ -12,9 +12,7 @@ type GetTelegramFileResponse = {
 };
 
 export async function getTelegramFile(botToken: string, filePath: string): Promise<GetTelegramFileResponse['result']> {
-    console.log('botToken filePath', { botToken, filePath });
     const jsonResult = await fetch(API_URL.getFile(botToken, filePath)).then((res) => res.json());
-    console.log('jsonResult', jsonResult);
     if (jsonResult.ok === false) {
         throw 'GetTelegramFileResponse ERROR';
     }
